@@ -24,7 +24,7 @@ class Xcart {
 
 
    function increaseInventory($sku, $amount) {
-   	echo 'doing increase';
+  
    	# STH means "Statement Handle"  
 	$STH = $this->DBH->prepare("update xcart_products set avail = avail+{$amount} where productcode = '$sku';");  
 	$STH->execute();  

@@ -88,18 +88,7 @@ class Acumatica {
 	
 	
 	function getItems() {
-		$this->
-
-
-	}
-	
-	function updateItem() {
-		$this->
-
-
-	}
-
-	$AR303000 = $client->AR303000GetSchema(new AR303000GetSchema());
+		/*$AR303000 = $client->AR303000GetSchema(new AR303000GetSchema());
 	$client->CR303000Clear;
 	$AR303000content = $AR303000->GetSchemaResult;
 	
@@ -129,10 +118,18 @@ class Acumatica {
 		print_r($e);
 	}
 	
-	echo(var_dump($submit_result));
+	echo(var_dump($submit_result));*/
 
 
+	}
+	
+	function updateItem() {
+	$IN202500 = $this->client->IN202500GetSchema(new IN202500GetSchema());
 
+
+	}
+
+	
 
 }
 
