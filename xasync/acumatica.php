@@ -86,6 +86,18 @@ class Acumatica {
 		return $error;
 	}
 	
+	/**
+  * This method is intended to be the only way to get ALL the inventory from Acutmata to our sync system for  syncing to  xcart. 
+  * it will only be called after the items have been updated via the updateItem method. 
+  *
+  * @todo 
+  * @example  
+  * @param 
+  * @since 0.1
+  * 
+  */
+
+
 	
 	function getItems() {
 		/*$AR303000 = $client->AR303000GetSchema(new AR303000GetSchema());
@@ -123,6 +135,16 @@ class Acumatica {
 
 	}
 	
+	/**
+  * this method is for update each  item on actumatica. 
+  *
+  * @todo 
+  * @example  
+  * @param 
+  * @since 0.1
+  * 
+  */
+
 	function updateItem($SKU, $QTY) {
 	//$IN202500 = $this->client->IN202500GetSchema(new IN202500GetSchema());
 
