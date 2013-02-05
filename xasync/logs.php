@@ -26,6 +26,17 @@ class Logs {
    }
 
 
+   /**
+  * returns the last  sync row from the database, this is used in getting records both from Xcart and from Acumatica
+  *
+  * @todo 
+  * @example  
+  * @param 
+  * @since 0.1
+  * 
+  */
+
+
    function getLastSync() {
    		# STH means "Statement Handle"  
 	$STH = $this->DBH->prepare("select *  from syncs order by date desc limit 1");  
@@ -35,6 +46,16 @@ class Logs {
 	
 	return $result;
    }
+
+   /**
+  * stores the sync after it is finished
+  *
+  * @todo 
+  * @example  
+  * @param 
+  * @since 0.1
+  * 
+  */
 
    function storeSync($syncClass) {
  
@@ -46,19 +67,57 @@ class Logs {
 
    }
 
+   /**
+  * this should be used to log the item, but also log it in MYSQL under accitems
+  *
+  * @todo 
+  * @example  
+  * @param 
+  * @since 0.1
+  * 
+  */
+
    function logsAccItem($sync_id) {
    	
    }
+    /**
+  * this should be used to log the item, but also log it in MYSQL under Xcart
+  *
+  * @todo 
+  * @example  
+  * @param 
+  * @since 0.1
+  * 
+  */
    function logsAXcartItem($sync_id) {
    	
    }
 
+/**
+  * stores the logs for either in the databse as a report or in the emial or both
+  *
+  * @todo 
+  * @example  
+  * @param 
+  * @since 0.1
+  * 
+  */
 
    function storelogs($log) {
    	//do MYSQL store?
    	$this->logs .= $log
 
    }
+
+   /**
+  * Prepares all the logs from this instance for the email
+  *
+  * @todo 
+  * @example  
+  * @param 
+  * @since 0.1
+  * 
+  */
 
    function email() {
    	$email = '<h1>' .$this->logsheader . '</h1>';

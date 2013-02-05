@@ -37,7 +37,13 @@ class Xasync {
 
    }
 
-
+   /**
+  * Uses Mandrill API to send an email of the sync to  users
+  * 
+  * @example $this->sendEmail();
+  * @since 0.1
+  *
+  */
 
     function sendEmail() {
     $date = new DateTime();
@@ -57,6 +63,16 @@ class Xasync {
         );
     }
 
+
+    /**
+  * Main Method, and only method that is supposed to be called directly.  preforms all the syncs for the project 
+  *
+  * @todo 
+  * @example  $Xasync = New Xasync(); $Xasync->sync(); 
+  * @param 
+  * @since 0.1
+  * 
+  */
 
         function sync() {
             //get the last sync information
