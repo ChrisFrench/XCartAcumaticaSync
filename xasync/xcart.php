@@ -101,7 +101,7 @@ class Xcart {
    }
 
    /**
-  * Gets the sales orders  so they can be processed
+  * Gets the sales orders  so they can be processed, this should return an array of sale order objects that each object has an items value will of an array of product objects
   *
   * @todo 
   * @example  
@@ -110,6 +110,32 @@ class Xcart {
   * 
   */
    function getSaleOrders($datetime) {
+    $date = new DateTime($datetime);
+     $timestamp = $date->getTimestamp();
+
+     //Query to select sales orders 
+     //select * from `rufskin2`.`xcart_orders` where `date` >= '1228348659'  limit 0,1000
+ 
+  $saleorders = $this->DBH->query("select * from xcart_orders where date >= '$timestamp'");
+
+$results = array('orders' => array());
+
+foreach($saleorders as $order) {
+  (object) $order
+  $items = array();
+  $oid = $order['orderid'];
+  $ordereditems = $db->query("select * from `rufskin2`.`xcart_order_details` where `orderid` = '$oid' ");
+  foreach($ordereditems as $orderitem){
+    $items[] = (object) $orderitem;
+  }
+  $order->items = $items;
+
+  $results['orders'][] = $order;
+}
+
+
+return $results;
+
 
    }
 /**
