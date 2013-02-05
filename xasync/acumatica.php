@@ -86,6 +86,11 @@ class Acumatica {
 		return $error;
 	}
 	
+	function doUpdatelog() {
+
+	}
+
+
 	/**
   * This method is intended to be the only way to get ALL the inventory from Acutmata to our sync system for  syncing to  xcart. 
   * it will only be called after the items have been updated via the updateItem method. 
@@ -97,43 +102,12 @@ class Acumatica {
   * 
   */
 
-
-	
 	function getItems() {
-		/*$AR303000 = $client->AR303000GetSchema(new AR303000GetSchema());
-	$client->CR303000Clear;
-	$AR303000content = $AR303000->GetSchemaResult;
-	
-	$customer         	= $AR303000content->CustomerSummary->CustomerID;
-	$customer_name    	= $AR303000content->CustomerSummary->CustomerName;
-	$country			= $AR303000content->GeneralInfoMainAddress->Country;
-	$customer_class		= $AR303000content->GeneralInfoAccountSettings->CustomerClass;
-
-    $command = array();
-	array_push($command, PrepareValue('TEST12345',     	$customer));
-	array_push($command, PrepareValue('Abce Customer', 	$customer_name));
-	array_push($command, PrepareValue('US',            	$country));
-	array_push($command, PrepareValue('DEFAULT',       	$customer_class));	
-	array_push($command, $AR303000content->Actions->Save);
-	// we want to get customer data after saving
-	array_push($command, clone $customer); // we use clone - objects that occur in commands more than one time need to be cloned  [SoapClient PHP BUG #50675]
-
-	$submit = new AR303000Submit();
-	$submit->commands = $command;
-	
-	try
-	{
-		$submit_result = $client->AR303000Submit($submit);
-	}
-	catch(Exception $e)
-	{
-		print_r($e);
-	}
-	
-	echo(var_dump($submit_result));*/
+		/* NOT sure what SCREEN this is going to use yet.  */
 
 
 	}
+	
 	
 	/**
   * this method is for update each  item on actumatica. 
@@ -147,9 +121,26 @@ class Acumatica {
 
 	function updateItem($SKU, $QTY) {
 	//$IN202500 = $this->client->IN202500GetSchema(new IN202500GetSchema());
+	//$IN202500Content 	
+
+		// make the post of the sku and warehouse and stuff
 
 
+		//do the submit to change the inventory
+	try
+	{
+		$result = $client->IN202500Submit($submit);
 	}
+	catch(Exception $e)
+	{
+		print_r($e);
+	}
+
+	//if we are good do a log?
+
+	$this->doUpdatelog();
+
+	
 
 	
 
