@@ -50,6 +50,10 @@ class Xcart {
    function getInventory() {
 
    }
+   function getSaleOrders($datetime) {
+
+   }
+
 
    function doLogs($action, $sku, $amount) {
 

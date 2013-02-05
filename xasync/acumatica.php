@@ -123,8 +123,8 @@ class Acumatica {
 
 	}
 	
-	function updateItem() {
-	$IN202500 = $this->client->IN202500GetSchema(new IN202500GetSchema());
+	function updateItem($SKU, $QTY) {
+	//$IN202500 = $this->client->IN202500GetSchema(new IN202500GetSchema());
 
 
 	}
